@@ -22,9 +22,13 @@ jobs:
 
       - name: تثبيت الحزم
         run: npm install
+        env:
+          ELECTRON_MIRROR: https://npmmirror.com/mirrors/electron/
 
       - name: بناء ملفات EXE
         run: npm run build
+        env:
+          ELECTRON_MIRROR: https://npmmirror.com/mirrors/electron/
 
       - name: رفع النتيجة كـ Artifact
         uses: actions/upload-artifact@v4
