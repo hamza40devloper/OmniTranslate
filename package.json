@@ -1,0 +1,39 @@
+{
+  "name": "kaboto-launcher",
+  "productName": "Kaboto Launcher",
+  "version": "1.0.0",
+  "description": "Kaboto Launcher - مشغل ماينكرافت خفيف وسريع",
+  "author": "Kaboto",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "node make-icon.js && electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.kaboto.launcher",
+    "productName": "Kaboto Launcher",
+    "directories": { "output": "dist" },
+    "files": [ "main.js", "preload.js", "index.html", "build/icon.png" ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "Kaboto Launcher",
+      "artifactName": "Kaboto-Setup-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "Kaboto-Portable-${version}.${ext}"
+    }
+  }
+}
