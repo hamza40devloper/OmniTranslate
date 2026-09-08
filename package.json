@@ -6,9 +6,9 @@
   "author": "Kaboto",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
-    "build": "node make-icon.js && electron-builder --win"
-  },
+  "start": "electron .",
+  "build": "node make-icon.js && electron-builder --win --publish never"
+},
   "devDependencies": {
     "electron": "^31.7.7",
     "electron-builder": "^25.1.8"
